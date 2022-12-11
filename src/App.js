@@ -6,19 +6,16 @@ import Button from 'react-bootstrap/Button';
 
 function App() {
   const [data, setData] = useState([]);
-  
-  const getData = () => {
-    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=9e7fd1bed96b980baeacdc8c5eee2b77&language=en-US&page=1')
-        .then(response => {
-          const movies = response.data.results
-          console.log(movies);
-        })
+  const [poster, setPoster] = useState([]);
 
-        axios.get('https://image.tmdb.org/t/p/w500/')
-        .then(response => {
-          const image = response.data.results
-          console.log(image);
-        })
+  const getData = () => {
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/movie/popular?api_key=9e7fd1bed96b980baeacdc8c5eee2b77&language=en-US&page=1',
+    })
+      .then(function (response) {
+        setData(response.data.results)
+      });
   }
 
   useEffect(() => {
@@ -30,7 +27,7 @@ function App() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Title</th>
             <th>Image</th>
             <th>Popularity</th>
@@ -42,7 +39,7 @@ function App() {
             return <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{item.original_title}</td>
-              <td>{item.backdrop_path}</td>
+              <td><img src={'https://image.tmdb.org/t/p/w500' + item.poster_path}></img></td>
               <td>{item.popularity}</td>
               <td>{item.overview}</td>
             </tr>
