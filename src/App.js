@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 
 function App() {
   const [data, setData] = useState([]);
-  const [poster, setPoster] = useState([]);
 
   const getData = () => {
     axios({
