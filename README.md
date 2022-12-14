@@ -1,1 +1,1 @@
-Belum selesai kak, mohon jangan dulu di nilai. Terima kasih sebelumnya kak
+Silahkan dinilai kak, tapi nanti akan saya lanjutkan lagi soalnya lagi sibuk tugas skripsian. Terima kasih sebelumnya kak 
